@@ -14,13 +14,10 @@ variable "client_id" {
 variable "client_secret" {
   type = string
 }
+variable "port" {
+  type = string
+}
 variable "image_tag" {
-  type = string
-}
-variable "registry_url" {
-  type = string
-}
-variable "database_host" {
   type = string
 }
 variable "database_port" {
@@ -30,6 +27,9 @@ variable "database_username" {
   type = string
 }
 variable "database_password" {
+  type = string
+}
+variable "database_db" {
   type = string
 }
 variable "google_api_key" {

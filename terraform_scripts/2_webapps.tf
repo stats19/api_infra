@@ -6,8 +6,8 @@ resource "azurerm_app_service_plan" "mapinator" {
   kind                = "Linux"
 
   sku {
-    tier = "Standard"
-    size = "S1"
+    tier     = "Standard"
+    size     = "S1"
     capacity = 5
   }
 }
@@ -22,13 +22,24 @@ resource "azurerm_app_service" "mapinator" {
   # Do not attach Storage by default
   app_settings = {
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = false
-    MYSQL_HOST=
+    MYSQL_HOST                          = azurerm_mysql_server.mysql.fqdn
+    MYSQL_PORT                          = var.database_port
+    MYSQL_DATABASE                      = var.database_db
+    PORT                                = var.port
+    GOOGLE_API_KEY                      = var.google_api_key
+    MAP_API_URL                         = var.map_api_url
   }
 
   # Configure Docker Image to load on start
   site_config {
     linux_fx_version = "DOCKER|${var.image_tag}:latest"
     always_on        = "true"
+  }
+
+  connection_string {
+    name  = "Database"
+    type  = "MySql"
+    value = "Server=${azurerm_mysql_server.mysql.fqdn};Integrated Security=SSPI"
   }
 
 }
