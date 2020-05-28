@@ -22,38 +22,35 @@ jobs:
       - name: Terraform Init
         run: terraform init -input=false ./terraform_scripts
 
-      - name: Terraform Format
-        run: terraform fmt -check -input=false ./terraform_scripts
-
       - name: Terraform Plan
         run: terraform plan -input=false ./terraform_scripts
         env:
-          TF_VAR_tenant_id=${{ secrets.TENANT_ID }}
-          TF_VAR_subscription_id=${{ secrets.SUBSCRIPTION_ID }}
-          TF_VAR_client_id=${{ secrets.CLIENT_ID }}
-          TF_VAR_client_secret=${{ secrets.CLIENT_SECRET }}
-          TF_VAR_image_tag=${{ secrets.IMAGE_TAG }}
-          TF_VAR_port=${{ secrets.PORT }}
-          TF_VAR_database_db=${{ secrets.MYSQL_DATABASE }}
-          TF_VAR_database_username=${{ secrets.MYSQL_USERNAME }}
-          TF_VAR_database_password=${{ secrets.MYSQL_PASSWORD }}
-          TF_VAR_database_port=${{ secrets.MYSQL_PORT }}
-          TF_VAR_google_api_key=${{ secrets.GOOGLE_API_KEY }}
-          TF_VAR_map_api_url=${{ secrets.MAP_API_URL }}
+          TF_VAR_tenant_id:  ${{ secrets.TENANT_ID }}
+          TF_VAR_subscription_id:  ${{ secrets.SUBSCRIPTION_ID }}
+          TF_VAR_client_id:  ${{ secrets.CLIENT_ID }}
+          TF_VAR_client_secret:  ${{ secrets.CLIENT_SECRET }}
+          TF_VAR_image_tag:  ${{ secrets.IMAGE_TAG }}
+          TF_VAR_port:  ${{ secrets.PORT }}
+          TF_VAR_database_db:  ${{ secrets.MYSQL_DATABASE }}
+          TF_VAR_database_username:  ${{ secrets.MYSQL_USERNAME }}
+          TF_VAR_database_password:  ${{ secrets.MYSQL_PASSWORD }}
+          TF_VAR_database_port:  ${{ secrets.MYSQL_PORT }}
+          TF_VAR_google_api_key:  ${{ secrets.GOOGLE_API_KEY }}
+          TF_VAR_map_api_url:  ${{ secrets.MAP_API_URL }}
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: terraform apply -auto-approve ./terraform_scripts
         env:
-          TF_VAR_tenant_id=${{ secrets.TENANT_ID }}
-          TF_VAR_subscription_id=${{ secrets.SUBSCRIPTION_ID }}
-          TF_VAR_client_id=${{ secrets.CLIENT_ID }}
-          TF_VAR_client_secret=${{ secrets.CLIENT_SECRET }}
-          TF_VAR_image_tag=${{ secrets.IMAGE_TAG }}
-          TF_VAR_port=${{ secrets.PORT }}
-          TF_VAR_database_db=${{ secrets.MYSQL_DATABASE }}
-          TF_VAR_database_username=${{ secrets.MYSQL_USERNAME }}
-          TF_VAR_database_password=${{ secrets.MYSQL_PASSWORD }}
-          TF_VAR_database_port=${{ secrets.MYSQL_PORT }}
-          TF_VAR_google_api_key=${{ secrets.GOOGLE_API_KEY }}
-          TF_VAR_map_api_url=${{ secrets.MAP_API_URL }}
+          TF_VAR_tenant_id:  ${{ secrets.TENANT_ID }}
+          TF_VAR_subscription_id:  ${{ secrets.SUBSCRIPTION_ID }}
+          TF_VAR_client_id:  ${{ secrets.CLIENT_ID }}
+          TF_VAR_client_secret:  ${{ secrets.CLIENT_SECRET }}
+          TF_VAR_image_tag:  ${{ secrets.IMAGE_TAG }}
+          TF_VAR_port:  ${{ secrets.PORT }}
+          TF_VAR_database_db:  ${{ secrets.MYSQL_DATABASE }}
+          TF_VAR_database_username:  ${{ secrets.MYSQL_USERNAME }}
+          TF_VAR_database_password:  ${{ secrets.MYSQL_PASSWORD }}
+          TF_VAR_database_port:  ${{ secrets.MYSQL_PORT }}
+          TF_VAR_google_api_key:  ${{ secrets.GOOGLE_API_KEY }}
+          TF_VAR_map_api_url:  ${{ secrets.MAP_API_URL }}
