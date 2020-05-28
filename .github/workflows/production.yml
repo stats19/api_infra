@@ -23,7 +23,7 @@ jobs:
         run: terraform init -input=false ./terraform_scripts
 
       - name: Terraform Format
-        run: terraform fmt -check -input=false ./terraform_scripts
+        run: terraform fmt -check ./terraform_scripts
 
       - name: Terraform Plan
         run: terraform plan -input=false ./terraform_scripts
