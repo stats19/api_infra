@@ -25,6 +25,8 @@ resource "azurerm_app_service" "mapinator" {
     MYSQL_HOST                          = azurerm_mysql_server.mysql.fqdn
     MYSQL_PORT                          = var.database_port
     MYSQL_DATABASE                      = var.database_db
+    MYSQL_USERNAME                      = "${var.database_username}@${azurerm_mysql_server.mysql.name}"
+    MYSQL_PASSWORD                      = var.database_password
     PORT                                = var.port
     GOOGLE_API_KEY                      = var.google_api_key
     MAP_API_URL                         = var.map_api_url
