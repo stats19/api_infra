@@ -5,11 +5,11 @@ resource "azurerm_mysql_server" "mysql" {
   sku_name = "B_Gen5_2"
   storage_mb = 5120
   backup_retention_days = 7
-  geo_redundant_backup  = "Disabled"
+  geo_redundant_backup_enable  = false
 
   administrator_login = var.database_username
   administrator_login_password = var.database_password
-  ssl_enforcement_enabled = false
+  ssl_enforcement = "Disabled"
   version = "5.7"
 
   tags = {
