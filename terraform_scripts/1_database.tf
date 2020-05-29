@@ -26,6 +26,13 @@ resource "azurerm_mysql_database" "mysql" {
   collation           = "utf8_unicode_ci"
 }
 
+resource "azurerm_mysql_configuration" "timezone" {
+  name                = "time_zone"
+  resource_group_name = azurerm_resource_group.main.name
+  server_name         = azurerm_mysql_server.mysql.name
+  value               = "+01:00"
+}
+
 resource "azurerm_mysql_firewall_rule" "mysql" {
   name                = "${azurerm_resource_group.main.name}-mysql-firewall"
   resource_group_name = azurerm_resource_group.main.name
