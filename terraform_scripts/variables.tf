@@ -38,3 +38,6 @@ variable "google_api_key" {
 variable "map_api_url" {
   type = string
 }
+variable "lucene_path" {
+  type = string
+}

@@ -54,3 +54,4 @@ jobs:
           TF_VAR_database_port:  ${{ secrets.MYSQL_PORT }}
           TF_VAR_google_api_key:  ${{ secrets.GOOGLE_API_KEY }}
           TF_VAR_map_api_url:  ${{ secrets.MAP_API_URL }}
+          TF_VAR_lucene_path:  ${{ secrets.LUCENE_FOLDER }}

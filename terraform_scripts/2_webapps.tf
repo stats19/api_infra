@@ -30,6 +30,7 @@ resource "azurerm_app_service" "mapinator" {
     PORT                                = var.port
     GOOGLE_API_KEY                      = var.google_api_key
     MAP_API_URL                         = var.map_api_url
+    LUCENE_FOLDER                       = var.lucene_path
   }
 
   # Configure Docker Image to load on start
