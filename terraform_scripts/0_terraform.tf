@@ -16,6 +16,6 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "main" {
-  name     = "stats19"
+  name     = "stats19-esgi"
   location = "francecentral"
 }

@@ -1,4 +1,4 @@
-resource "azurerm_app_service_plan" "mapinator" {
+resource "azurerm_app_service_plan" "stats19" {
   name                = "${azurerm_resource_group.main.name}-plan"
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
@@ -13,7 +13,7 @@ resource "azurerm_app_service_plan" "mapinator" {
 }
 
 # Create an Azure Web App for Containers in that App Service Plan
-resource "azurerm_app_service" "mapinator" {
+resource "azurerm_app_service" "stats19" {
   name                = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
