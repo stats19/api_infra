@@ -22,15 +22,18 @@ resource "azurerm_app_service" "mapinator" {
   # Do not attach Storage by default
   app_settings = {
     WEBSITES_ENABLE_APP_SERVICE_STORAGE = false
-    MYSQL_HOST                          = azurerm_mysql_server.mysql.fqdn
+    MYSQL_HOST                          = var.database_host
     MYSQL_PORT                          = var.database_port
     MYSQL_DATABASE                      = var.database_db
-    MYSQL_USERNAME                      = "${var.database_username}@${azurerm_mysql_server.mysql.name}"
+    MYSQL_USERNAME                      = var.database_username
     MYSQL_PASSWORD                      = var.database_password
     PORT                                = var.port
-    GOOGLE_API_KEY                      = var.google_api_key
-    MAP_API_URL                         = var.map_api_url
-    LUCENE_FOLDER                       = var.lucene_path
+    SECRET_KEY                          = var.secret_key
+    RABBIT_HOST                         = var.rabbit_host
+    RABBIT_PORT                         = var.rabbit_port
+    RABBIT_USERNAME                     = var.rabbit_username
+    RABBIT_PASSWORD                     = var.rabbit_password
+    RABBIT_ADDRESSES                    = var.rabbit_addresses
   }
 
   # Configure Docker Image to load on start

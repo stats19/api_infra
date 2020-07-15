@@ -32,12 +32,24 @@ variable "database_password" {
 variable "database_db" {
   type = string
 }
-variable "google_api_key" {
+variable "secret_key" {
   type = string
 }
-variable "map_api_url" {
+variable "database_host" {
   type = string
 }
-variable "lucene_path" {
+variable "rabbit_host" {
+  type = string
+}
+variable "rabbit_port" {
+  type = string
+}
+variable "rabbit_username" {
+  type = string
+}
+variable "rabbit_password" {
+  type = string
+}
+variable "rabbit_addresses" {
   type = string
 }

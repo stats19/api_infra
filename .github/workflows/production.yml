@@ -35,10 +35,13 @@ jobs:
           TF_VAR_database_username:  ${{ secrets.MYSQL_USERNAME }}
           TF_VAR_database_password:  ${{ secrets.MYSQL_PASSWORD }}
           TF_VAR_database_port:  ${{ secrets.MYSQL_PORT }}
-          TF_VAR_google_api_key:  ${{ secrets.GOOGLE_API_KEY }}
-          TF_VAR_map_api_url:  ${{ secrets.MAP_API_URL }}
-          TF_VAR_lucene_path:  ${{ secrets.LUCENE_FOLDER }}
-
+          TF_VAR_database_host:  ${{ secrets.MYSQL_HOST }}
+          TF_VAR_secret_key: ${{ secrets.SECRET_KEY}}
+          TF_VAR_rabbit_host: ${{ secrets.RABBIT_HOST}}
+          TF_VAR_rabbit_port: ${{ secrets.RABBIT_PORT}}
+          TF_VAR_rabbit_username: ${{ secrets.RABBIT_USERNAME}}
+          TF_VAR_rabbit_password: ${{ secrets.RABBIT_PASSWORD}}
+          TF_VAR_rabbit_addresses: ${{ secrets.RABBIT_ADDRESSES}}
       - name: Terraform Apply
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: terraform apply -auto-approve ./terraform_scripts
@@ -53,6 +56,10 @@ jobs:
           TF_VAR_database_username:  ${{ secrets.MYSQL_USERNAME }}
           TF_VAR_database_password:  ${{ secrets.MYSQL_PASSWORD }}
           TF_VAR_database_port:  ${{ secrets.MYSQL_PORT }}
-          TF_VAR_google_api_key:  ${{ secrets.GOOGLE_API_KEY }}
-          TF_VAR_map_api_url:  ${{ secrets.MAP_API_URL }}
-          TF_VAR_lucene_path:  ${{ secrets.LUCENE_FOLDER }}
+          TF_VAR_database_host:  ${{ secrets.MYSQL_HOST }}
+          TF_VAR_secret_key: ${{ secrets.SECRET_KEY}}
+          TF_VAR_rabbit_host: ${{ secrets.RABBIT_HOST}}
+          TF_VAR_rabbit_port: ${{ secrets.RABBIT_PORT}}
+          TF_VAR_rabbit_username: ${{ secrets.RABBIT_USERNAME}}
+          TF_VAR_rabbit_password: ${{ secrets.RABBIT_PASSWORD}}
+          TF_VAR_rabbit_addresses: ${{ secrets.RABBIT_ADDRESSES}}
