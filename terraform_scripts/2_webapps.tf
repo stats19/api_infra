@@ -42,10 +42,4 @@ resource "azurerm_app_service" "mapinator" {
     always_on        = "true"
   }
 
-  connection_string {
-    name  = "Database"
-    type  = "MySql"
-    value = "Server=${azurerm_mysql_server.mysql.fqdn};Integrated Security=SSPI"
-  }
-
 }

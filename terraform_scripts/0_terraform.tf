@@ -16,6 +16,6 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "main" {
-  name     = "mapinator"
+  name     = "stats19"
   location = "francecentral"
 }
