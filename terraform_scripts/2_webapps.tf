@@ -17,7 +17,7 @@ resource "azurerm_app_service" "stats19" {
   name                = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
   resource_group_name = azurerm_resource_group.main.name
-  app_service_plan_id = azurerm_app_service_plan.mapinator.id
+  app_service_plan_id = azurerm_app_service_plan.stats19.id
 
   # Do not attach Storage by default
   app_settings = {
